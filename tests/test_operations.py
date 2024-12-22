@@ -6,6 +6,6 @@ def unit_test_add():
     assert add(10,20) == 30
 
 def unit_test_sub():
-    assert add(5,6) == -1
-    assert add(7,5) == 2
-    assert add(10,10) == 0
+    assert sub(5,6) == -1
+    assert sub(7,5) == 2
+    assert sub(10,10) == 0
