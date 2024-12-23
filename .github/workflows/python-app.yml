@@ -1,0 +1,34 @@
+name: Python CI
+
+# Trigger the workflow on any push to the main branch or pull request
+on:  # these are the events like push, pull, delete, merge. this event triggered the workflow in github actions
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:  # it uses container 
+  test:
+    runs-on: ubuntu-latest  # we can also use windows, mac as well 
+
+    steps:
+      # Step 1: Check out the code from the repository
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies # it installs the pytest dependencies 
+        run: | # here all the requirements.txt libraries are get installed 
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  
+
+      # Step 4: Run test cases that we have retured 
+      - name: Run tests
+        run: pytest
