@@ -1,5 +1,5 @@
-def add(a:int , b:int )->int:
+def add(a, b):
     return a+b 
 
-def sub(a:int , b:int)->int:
+def sub(a, b):
     return a-b
